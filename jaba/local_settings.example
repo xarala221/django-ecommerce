@@ -8,6 +8,20 @@ EMAIL_HOST_PASSWORD = "ton mot de passe Google"
 EMAIL_USE_TLS = True
 """
 
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'jaba_local',
+        'USER': 'username',
+        'PASSWORD': 'password!',
+        'HOST': '127.0.0.1',
+        'PORT': '5432',
+    }
+}
+
+
 # PAydunya
 PAYDUNYA_ACCESS_TOKENS = {
     'PAYDUNYA-MASTER-KEY': "",
