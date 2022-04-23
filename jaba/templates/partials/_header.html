@@ -1,0 +1,46 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container">
+      <a class="navbar-brand" href="/">Jaba</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">Accueil</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'product-list' %}">Boutique</a>
+          </li>
+        </ul>
+        <div class="d-flex">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+
+
+              {% with total_items=cart|length %}
+
+              {% if total_items > 0 %}
+
+              <a href="{% url 'cart_detail' %}" class="nav-link">
+                {% with total=cart.get_total_price items=total_items %}
+                Panier: {{ items }} produis, {{ total|floatformat }} CFA
+                {% endwith %}
+
+              </a>
+              {% else %}
+              Votre panier est vide
+              {% endif %}
+
+              {% endwith %}
+
+            </li>
+
+          </ul>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>

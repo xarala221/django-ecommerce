@@ -1,0 +1,12 @@
+<div class="col-md-4">
+  <div class="card">
+    <a href="{{ product.get_absolute_url }}">
+      <img src="{{ product.image.url }}" class="card-img-top" alt="{{ product.name }}">
+    </a>
+    <div class="card-body">
+      <h5 class="card-title">{{ product.name }}</h5>
+      <p class="card-text">Prix: {{ product.price }}</p>
+      <p class="card-text">{{ product.description }}</p>
+    </div>
+  </div>
+</div>

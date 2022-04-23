@@ -1,0 +1,68 @@
+{% extends "_base.html" %}
+
+
+{% block content %}
+<h2>Votre panier</h2>
+<div class="row">
+
+  {% if cart %}
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Image</th>
+        <th>Produit</th>
+        <th>Quantité</th>
+        <th>Retiré</th>
+        <th>Prix Unitaire</th>
+        <th>Prix Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for item in cart %}
+
+      {% with product=item.product %}
+      <tr>
+        <td>
+          <img src="{{ product.image.url }}" alt="{{ product.name }}" class="img-thumbnail" width="200" height="100">
+        </td>
+        <td>
+          {{ product.name }}
+        </td>
+        <td>
+          <form action="{% url 'cart_add' product.id %}" method="post">
+            {% csrf_token %}
+            {{ item.update_quantity_form.quantity }}
+            {{ item.update_quantity_form.override }}
+            <input type="submit" value="Mettre a jour">
+          </form>
+        </td>
+        <td>
+          <form action="{% url 'cart_remove' product.id %}" method="post">
+            {% csrf_token %}
+            <input type="submit" value="Supprimer du panier">
+          </form>
+        </td>
+        <td>
+          {{ item.price }}
+        </td>
+        <td>
+          {{ item.total_price }}
+        </td>
+      </tr>
+      {% endwith %}
+      {% endfor %}
+
+    </tbody>
+  </table>
+
+  <a href="{%  url 'order_create' %}" class=" btn btn-primary">Valider votre commande</a>
+  {% else %}
+  <div class="text-center">
+    <h2>Votre panier est vide</h2>
+    <a href="/" class="btn btn-primary">Continuez vos achats</a>
+  </div>
+  {% endif %}
+
+</div>
+{% endblock content %}

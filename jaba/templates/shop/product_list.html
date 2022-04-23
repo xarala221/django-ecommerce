@@ -1,0 +1,54 @@
+{% extends "_base.html" %}
+
+{% block content %}
+<section>
+  <h1 class="text-center pb-2">Achetez le meilleur</h1>
+
+  <div class="row">
+    <div class="col-md-8 mx-auto mb-4">
+      <form class="d-flex">
+        <input class="form-control me-2" type="search" placeholder="Que voulez-vous acheter?" aria-label="Search"
+          name="q">
+        <button class="btn btn-outline-success" type="submit">Rechercher</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+
+    <div class="col-md-3">
+      <h2>Liste des catégories</h2>
+      <ul class="list-group">
+        {% for category in categories %}
+        <li class="list-group-item">
+          <a href="#">{{ category.name }}</a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="col-md-9">
+      <div class="row">
+
+        {% if products %}
+
+        {% for product in products %}
+        {% include "partials/_product-card.html" %}
+        {% endfor %}
+
+        {% else %}
+
+        <p class="text-center">Pas de produita</p>
+
+        {% endif %}
+      </div>
+    </div>
+
+
+
+  </div>
+
+
+</section>
+
+{% endblock content %}

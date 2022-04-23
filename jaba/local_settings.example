@@ -1,0 +1,16 @@
+"""
+Si c'est Google
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = "smtp.google.com"
+EMAIL_PORT = 587
+EMAIL_HOST_USER = "ton mail Google"
+EMAIL_HOST_PASSWORD = "ton mot de passe Google"
+EMAIL_USE_TLS = True
+"""
+
+# PAydunya
+PAYDUNYA_ACCESS_TOKENS = {
+    'PAYDUNYA-MASTER-KEY': "",
+    'PAYDUNYA-PRIVATE-KEY': "",
+    'PAYDUNYA-TOKEN': ""
+}
