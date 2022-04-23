@@ -9,6 +9,7 @@ psycopg2 = "*"
 pillow = "*"
 requests = "*"
 paydunya = "*"
+gunicorn = "*"
 
 [dev-packages]
 autopep8 = "*"
